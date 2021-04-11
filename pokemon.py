@@ -15,7 +15,21 @@ class Pokemon:
     def atacar(self, pokemon):
         print('{} atacou {}!'.format(self, pokemon))                   #esse self esta pegando o retorno da função str
 
-meu_pokemon = Pokemon('folha', 'bubasauro', level=24, nome='matheus')
+class PokemonEletrico(Pokemon):
+    def atacar(self, pokemon):
+        print('{} lancou um raio do trovão em {}'.format(self, pokemon))
+
+    def dar_cheque(self):
+        print('deu Choque')
+
+
+
+
+meu_pokemon = PokemonEletrico('folha', 'bubasauro', level=24, nome='matheus')
 pokemon_amigo = Pokemon('eletrico', 'pikachu')
 
+print(meu_pokemon.atacar(pokemon_amigo))
+
 print(meu_pokemon.nome, meu_pokemon.level)
+
+meu_pokemon.dar_cheque()
