@@ -1,10 +1,15 @@
-class Pokemon:
-    def __init__(self, tipo, especie, level=1, nome=None):                                                #construtor
-        self.tipo = tipo
-        self.especie = especie
-        self.level = level
+import random
 
-        if(nome):
+class Pokemon:
+    def __init__(self, especie, level=None, nome=None):  # construtor
+        self.especie = especie
+
+        if level:
+            self.level = level
+        else:
+            self.level = random.randint(1, 100)
+
+        if nome:
             self.nome = nome
         else:
             self.nome = especie
@@ -12,24 +17,27 @@ class Pokemon:
     def __str__(self):
         return "{}({})".format(self.nome, self.level)
 
-    def atacar(self, pokemon):
-        print('{} atacou {}!'.format(self, pokemon))                   #esse self esta pegando o retorno da função str
+    def atacar(self,
+               pokemon):  # o parametro pokemon retorna nome e level, pois tambem é um objeto do tipo pokemon e sempre retorna o metodo __str__
+        print('{} atacou {}!'.format(self, pokemon))  # esse self esta pegando o retorno da função str
+
 
 class PokemonEletrico(Pokemon):
+    tipo = 'eletrico'
+
     def atacar(self, pokemon):
         print('{} lancou um raio do trovão em {}'.format(self, pokemon))
 
-    def dar_cheque(self):
-        print('deu Choque')
+
+class PokemonFogo(Pokemon):
+    tipo = 'fogo'
+
+    def atacar(self, pokemon):
+        print('{} lancou uma bole de fogo na cabeça de {}'.format(self, pokemon))
 
 
+class PokemonAgua(Pokemon):
+    tipo = 'agua'
 
-
-meu_pokemon = PokemonEletrico('folha', 'bubasauro', level=24, nome='matheus')
-pokemon_amigo = Pokemon('eletrico', 'pikachu')
-
-print(meu_pokemon.atacar(pokemon_amigo))
-
-print(meu_pokemon.nome, meu_pokemon.level)
-
-meu_pokemon.dar_cheque()
+    def atacar(self, pokemon):
+        print('{} lancou um jato d`água em {}'.format(self, pokemon))
