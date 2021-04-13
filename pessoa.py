@@ -15,6 +15,7 @@ POKEMONS = [
     PokemonAgua("Magicarp"),
 ]
 
+
 class Pessoa:
 
     def __init__(self, nome=None, pokemons=[]):
@@ -54,9 +55,3 @@ class Inimigo(Pessoa):
                 pokemons.append(random.choice(POKEMONS))
         super().__init__(nome=nome, pokemons=pokemons)
 
-
-meu_inimigo = Inimigo(nome='santan')
-
-print(meu_inimigo)
-
-meu_inimigo.mostrar_pokemons()
