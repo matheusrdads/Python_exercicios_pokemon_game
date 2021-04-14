@@ -51,9 +51,23 @@ class Pessoa:
         print('{} iniciou uma batalha com {}'.format(self, pessoa))
 
         pessoa.mostrar_pokemons()
-        pessoa.escolher_pokemon()
+        pokemon_inimigo = pessoa.escolher_pokemon()
 
-        self.escolher_pokemon()
+        pokemon = self.escolher_pokemon()
+
+        if pokemon and pokemon_inimigo:
+            while True:
+                vitoria = pokemon.atacar(pokemon_inimigo)
+                if vitoria:
+                    print('{} ganhou a batalha'.format(self))
+                    break
+
+                vitoria_inimiga = pokemon_inimigo.atacar(pokemon)
+                if vitoria_inimiga:
+                    print('{} ganhou a batalha'.format(pessoa))
+                    break
+        else:
+            print('Essa batalha não pode ocorrer')
 
 
 class Player(Pessoa):
