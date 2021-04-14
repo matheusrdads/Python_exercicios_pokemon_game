@@ -28,6 +28,7 @@ def escolher_pokemon_inicial(player):
 
 
 player = Player('Matheus')
+player.mostrar_dinheiro()
 player.capturar(PokemonFogo("Charmander", level=45))
 
 inimigo1 = Inimigo(nome='Garry', pokemons=[PokemonAgua('Squirtle', level=34)])

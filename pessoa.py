@@ -49,6 +49,14 @@ class Pessoa:
         else:
             print('Esse jogador não possui um pokemon para ser escolhido')
 
+    def mostrar_dinheiro(self):
+        print("Você possui $ {} em sua conta".format(self.dinheiro))
+
+    def ganhar_dinheiro(self, quantidade):
+        self.dinheiro += quantidade
+        print('Voce gahou $ {}'.format(quantidade))
+        self.mostrar_dinheiro()
+
     def batalhar(self, pessoa):
         print('{} iniciou uma batalha com {}'.format(self, pessoa))
 
@@ -62,6 +70,7 @@ class Pessoa:
                 vitoria = pokemon.atacar(pokemon_inimigo)
                 if vitoria:
                     print('{} ganhou a batalha'.format(self))
+                    self.ganhar_dinheiro(pokemon_inimigo.level * 100)
                     break
 
                 vitoria_inimiga = pokemon_inimigo.atacar(pokemon)
