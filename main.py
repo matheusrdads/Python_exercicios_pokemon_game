@@ -1,5 +1,6 @@
 from pessoa import *
 
+
 def escolher_pokemon_inicial(player):
     print('Olá {}, você poderá escolher agora o Pokemon que ira lhe acompanhar nessa jornada'.format(player))
 
@@ -18,15 +19,17 @@ def escolher_pokemon_inicial(player):
         if escolha == '1':
             player.capturar(pikachu)
             break
-        elif escolha =='2':
+        elif escolha == '2':
             player.capturar(charmander)
             break
         elif escolha == '3':
             player.capturar(squirtle)
             break
 
+
 player = Player('Matheus')
+player.capturar(PokemonFogo("Charmander", level=45))
 
-escolher_pokemon_inicial(player)
+inimigo1 = Inimigo(nome='Garry', pokemons=[PokemonAgua('Squirtle', level=34)])
 
-player.mostrar_pokemons()
+player.batalhar(inimigo1)
