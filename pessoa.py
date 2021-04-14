@@ -20,13 +20,15 @@ POKEMONS = [
 
 class Pessoa:
 
-    def __init__(self, nome='None', pokemons=[]):
+    def __init__(self, nome='None', pokemons=[], dinheiro=100):
         if nome:
             self.nome = nome
         else:
             self.nome = random.choice(NOMES)
 
         self.pokemons = pokemons
+
+        self.dinheiro = dinheiro
 
     def __str__(self):
         return self.nome
